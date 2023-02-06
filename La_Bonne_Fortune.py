@@ -89,14 +89,15 @@ st.button("soumettre temps")
 #now show the output....
 
 #seed_1.heic
-image_seed = mpimg.imread("Resources/pngtree-pink-watercolor-cherry-blossom-tree-petals-falling-beautiful-scenery-image_1067067.jpeg")
+image_seed = mpimg.imread("Resources/seed_1.jpg")
 st.image(image_seed)
 
 
 
 #Drei Töpfe
-
+st.header("Projet minimal: Finances")
 #Big decisions
+st.subheader("Décisions Majeures")
 #Topf 1 in grau + Summe, Topf 2 + Summe, Topf 3 + Summe
 #Liste wo man decisions hinzufügen kann + Summe
 # die Summen werden dann aus dem Topf 2 oder 3 abgezogen
@@ -104,6 +105,7 @@ st.image(image_seed)
 
 #Drei Töpfe revisited
 #Small decisions
+st.subheader("Décisions Mineures")
 
 #st.markdown(
 #"""
