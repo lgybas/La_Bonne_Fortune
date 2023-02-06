@@ -13,12 +13,11 @@ import matplotlib.image as mpimg
 #plt.title("Tree Image")
 #plt.xlabel("X pixel scaling")
 #plt.ylabel("Y pixels scaling")
+#plt.imshow(image_tree)
+#plt.axis('off')
+#plt.show()
 
 
-image = mpimg.imread("Resources/single_pink_tree_with_trunk.jpeg")
-plt.imshow(image)
-plt.axis('off')
-plt.show()
 
 #plt.savefig("test.png", bbox_inches='tight')
 
@@ -27,7 +26,8 @@ plt.show()
 # Add to my streamlit app
 
 st.title("La Bonne Fortune :sweat_drops: :sunny: :seedling:", anchor=None)
-st.image(image)
+image_tree = mpimg.imread("Resources/single_pink_tree_with_trunk.jpeg")
+st.image(image_tree)
 st.caption( "Encore et encore l'arbre m'a dit: **»I love you«** ")
 
 # Quote für mich
@@ -85,9 +85,25 @@ time = st.slider("Temps Bien Dépensé (heures)", max_value=12, value=1)
 st.button("soumettre temps")
 
 
+
 #now show the output....
 
+#seed_1.heic
+image_seed = mpimg.imread("Resources/pngtree-pink-watercolor-cherry-blossom-tree-petals-falling-beautiful-scenery-image_1067067.jpeg")
+st.image(image_seed)
 
+
+
+#Drei Töpfe
+
+#Big decisions
+#Topf 1 in grau + Summe, Topf 2 + Summe, Topf 3 + Summe
+#Liste wo man decisions hinzufügen kann + Summe
+# die Summen werden dann aus dem Topf 2 oder 3 abgezogen
+
+
+#Drei Töpfe revisited
+#Small decisions
 
 #st.markdown(
 #"""
