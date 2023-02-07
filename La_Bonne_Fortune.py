@@ -99,7 +99,31 @@ st.header("Projet minimal: Finances")
 #Big decisions
 st.subheader("Décisions Majeures")
 #Topf 1 in grau + Summe, Topf 2 + Summe, Topf 3 + Summe
+texte = ["vue d'ensemble", "------------------", "Wohnungsrückzahlung", "Unbezahlt frei für Daniel"]
+pot_1 = [6900, "----", "", ""]     #assumend average monthly spending (average of last 6 months)
+pot_2 = [25000, "----", "", "6000"]    #available money this year
+pot_3 = [0, "----", 15000, ""]        #do not know what to put here
+
+pots = pd.DataFrame(
+    {"Texte": texte,
+    "pot 1": pot_1, 
+    "pot 2": pot_2,
+    "pot 3": pot_3})
+
+st.dataframe(pots)
+
+st.button("add idea")
+
+
+#wie füllt sich der topf 2
+# unklare Übersicht
+
+
+
 #Liste wo man decisions hinzufügen kann + Summe
+
+
+
 # die Summen werden dann aus dem Topf 2 oder 3 abgezogen
 
 
