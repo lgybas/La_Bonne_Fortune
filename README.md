@@ -8,4 +8,4 @@
 
  # Utilisation:
  Il a été créé dans la salle ovale de la Bibliothèque nationale de France par Liane Gybas. 
- C'est la propriété intellectuelle du créateur et toute utilisation est interdite.
+ C'est la propriété intellectuelle du créateur et toute utilisation commerciale est interdite.
