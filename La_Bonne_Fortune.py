@@ -5,7 +5,8 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
- 
+import datetime
+#%% 
 #%%
 
 
@@ -99,20 +100,68 @@ st.header("Projet minimal: Finances")
 #Big decisions
 st.subheader("Décisions Majeures")
 #Topf 1 in grau + Summe, Topf 2 + Summe, Topf 3 + Summe
-texte = ["vue d'ensemble", "------------------", "Wohnungsrückzahlung", "Unbezahlt frei für Daniel"]
-pot_1 = [6900, "----", "", ""]     #assumend average monthly spending (average of last 6 months)
-pot_2 = [25000, "----", "", "6000"]    #available money this year
-pot_3 = [0, "----", 15000, ""]        #do not know what to put here
 
-pots = pd.DataFrame(
-    {"Texte": texte,
-    "pot 1": pot_1, 
-    "pot 2": pot_2,
-    "pot 3": pot_3})
+if "major_decisions" not in st.session_state:
+    st.session_state.major_decisions = {
+        "Prio":[],
+        "Description":[],
+         "Pot 2":[],
+        "Pot 3":[],
+         }
 
-st.dataframe(pots)
+pot_3_init = 25000
 
-st.button("add idea")
+if "pot_2_ideas_sum" not in st.session_state:
+    st.session_state.pot_2_ideas_sum = 0
+
+if "pot_3_ideas_sum" not in st.session_state:
+    st.session_state.pot_3_ideas_sum = pot_3_init
+
+
+
+
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Pot 1", "2,000 €", "+2%", delta_color="inverse")
+col2.metric("Pot 2", st.session_state.pot_2_ideas_sum, "-8%", delta_color="inverse")
+col3.metric("Pot 3", st.session_state.pot_3_ideas_sum, "+4%", delta_color="inverse")
+
+st.markdown("""**Déclaration:**   
+ **Pot 1** - la moyenne des dépenses bihebdomadaires    
+ **Pot 2** - le total des dépenses annuelles  
+ **Pot 3** - le total des investissements annuels""")
+
+
+#Add a new major decision:
+if st.checkbox("Nouveau Idée"):
+    c1, c2, c3, c4 = st.columns(4)
+    prio = c1.number_input("Prio", 0, 10)
+    desc = c2.text_input("Description")
+    pot_2 = c3.number_input("Pot 2", 0, 15000)
+    pot_3 = c4.number_input("Pot 3", 0, 50000)
+
+    if st.button("Ajouter"):
+        st.session_state.major_decisions["Prio"].append(prio)
+        st.session_state.major_decisions["Description"].append(desc)
+        st.session_state.major_decisions["Pot 2"].append(pot_2)
+        st.session_state.major_decisions["Pot 3"].append(pot_3)
+
+        st.session_state.pot_2_ideas_sum += pot_2 
+        st.session_state.pot_3_ideas_sum -= pot_2 
+
+        
+
+
+st.dataframe(st.session_state.major_decisions)
+
+button_c1, button_c2 = st.columns(2)
+button_c1.button("rafraichir")
+
+today = datetime.datetime.today().strftime("%A")
+
+file_name_major_dec = "Major_Decisions_" + today
+
+button_c2.download_button("Save", data=pd.DataFrame(st.session_state.major_decisions).to_csv().encode('utf-8'), file_name=file_name_major_dec)
 
 
 #wie füllt sich der topf 2
