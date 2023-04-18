@@ -6,27 +6,52 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import datetime
-#%% 
+import os
+import glob
+  
+
+
 #%%
 
 
 
-#plt.title("Tree Image")
-#plt.xlabel("X pixel scaling")
-#plt.ylabel("Y pixels scaling")
-#plt.imshow(image_tree)
-#plt.axis('off')
-#plt.show()
+#with st.sidebar:
+#    selected = option_menu("Étincelle de vie", ["Instants de Bonheur", 'Courants'], 
+#        icons=['house', 'gear'], menu_icon="cast", default_index=1)
+#    selected
+
+#droplet
+#magic
+#moon-stars
+#moisture
+#music-note
+#wind
+#wallet2
+#plus-circle-dottet
+#cloud-plus
+#clock-history
+#clock
+#chat-right-heart
+#0-circle-fill
+#1-circle-fill
+#2-circle-fill
+#arrow-down-circle-fill
+#arrow-up-circle-fill
 
 
+#### get all happy moments
 
-#plt.savefig("test.png", bbox_inches='tight')
 
 #%%
-
 # Add to my streamlit app
-
 st.title("La Bonne Fortune :sweat_drops: :sunny: :seedling:", anchor=None)
+
+
+
+
+
+
+
 image_tree = mpimg.imread("Resources/single_pink_tree_with_trunk.jpeg")
 st.image(image_tree)
 st.caption( "Encore et encore l'arbre m'a dit: **»I love you«** ")
