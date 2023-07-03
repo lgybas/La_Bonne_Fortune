@@ -124,6 +124,8 @@ image_seed = mpimg.imread("Resources/seed_1.jpg")
 st.image(image_seed)
 
 
+#%%
+#########################
 
 #Drei Töpfe
 st.header("Projet minimal: Finances")
